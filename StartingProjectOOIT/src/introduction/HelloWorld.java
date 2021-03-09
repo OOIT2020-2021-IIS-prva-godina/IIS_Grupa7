@@ -1,7 +1,7 @@
 package introduction;
 
 public class HelloWorld {
-	// Ovo je komentar
+	// Ovo je drugi komentar
 	public static void main(String[] args) {
 		System.out.println("Hello World!");
 	}
