@@ -11,7 +11,7 @@ public class Test {
 		
 		System.out.println("X p1: " + p1.getX());
 		System.out.println("Y p1: " + p1.getY());
-		System.out.println("Selected p1: " + p1.getSelected());
+		System.out.println("Selected p1: " + p1.isSelected());
 		
 		Point p2 = new Point();
 		p2.setX(13);
@@ -70,8 +70,40 @@ public class Test {
 		// povrsine pravougaonika r1 i y koordinate pocetne tacke linije l1
 		r1.setWidth(30);
 		r1.setHeight(20);
-		c1.getCenter().setX(r1.area()-l1.getStartPoint().getY());
+		c1.getCenter().setX(r1.area() - l1.getStartPoint().getY());
 		System.out.println(c1.getCenter().getX());
+		
+		// VEZBE 4
+		Point p4 = new Point(50,100);
+		System.out.println(p4.isSelected() + " " + p4.getX());
+		Line l2 = new Line(p4, new Point(400, 500));
+		Rectangle r2 = new Rectangle(p4, 50, 80);
+
+		System.out.println(p2.toString()); // ili System.out.println(p2);
+		System.out.println(l2);
+		System.out.println(r2);
+
+		int c = 5; 
+		int d = 5; 
+		System.out.println(c == d); 
+
+		d = 7; 
+		System.out.println(c == d); 
+
+		Point p5 = new Point();
+		System.out.println(p5 == p2);
+		p5 = p2; // dodeljuje se referenca i  vrednost
+		System.out.println(p5);
+		p2.setX(20);
+		System.out.println(p5);
+		System.out.println(p5 == p2);
+		System.out.println(p2);
+
+		Point p6 = new Point(20, 100);
+		System.out.println(p6 == p2);
+		System.out.println(p6.equals(p2)); // pre i posle redefinisanja metode
+		
+		p6.setX(p5.getX());
 	}
 
 }

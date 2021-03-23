@@ -5,6 +5,37 @@ public class Line {
 	private Point startPoint;
 	private Point endPoint;
 	private boolean selected;
+	
+	public Line() {
+	}
+
+	public Line(Point startPoint, Point endPoint) {
+		this.startPoint = startPoint;
+		this.endPoint = endPoint;
+	}
+
+	public Line(Point startPoint, Point endPoint, boolean selected) {
+		this(startPoint, endPoint);// prva naredba u bloku (telu konstruktora)
+		this.selected = selected;
+	}
+	
+	public boolean equals(Object obj) {
+
+		if (obj instanceof Line) {
+
+			Line pomocna = (Line) obj;
+			if (startPoint.equals(pomocna.startPoint) && endPoint.equals(pomocna.endPoint))
+				return true;
+			else
+				return false;
+		} else
+			return false;
+
+	}
+	
+	public String toString() {
+		return startPoint+"-- >"+endPoint;
+	}
 
 	public double length() {
 		return this.startPoint.distance(this.endPoint.getX(), this.endPoint.getY());

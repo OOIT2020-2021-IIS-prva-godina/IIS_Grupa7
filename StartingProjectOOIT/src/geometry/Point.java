@@ -5,11 +5,44 @@ public class Point {
 	private int y;
 	private boolean selected;
 	
+	public Point() {
+	}
+
+	public Point(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	public Point(int x, int y, boolean selected) {
+		// this.x=x;
+		// this.y=y;
+		this(x, y);
+		this.selected = selected;
+	}
+	
 	public double distance(int x, int y) {
 		int dX = this.x - x;
 		int dY = this.y - y;
 		double d = Math.sqrt(dX*dX + dY*dY);
 		return d;
+	}
+	
+	public boolean equals(Object obj) {
+
+		if (obj instanceof Point) {
+
+			Point pomocna = (Point) obj;
+			if (this.x == pomocna.x && this.y == pomocna.y)
+				return true;
+			else
+				return false;
+		} else
+			return false;
+
+	}
+	
+	public String toString() {
+		return "(" + x + ", " + y + ")";
 	}
 	
 	public int getX() {
@@ -28,7 +61,7 @@ public class Point {
 		y = newY;
 	}
 	
-	public boolean getSelected() {
+	public boolean isSelected() {
 		return selected;
 	}
 	
