@@ -104,6 +104,35 @@ public class Test {
 		System.out.println(p6.equals(p2)); // pre i posle redefinisanja metode
 		
 		p6.setX(p5.getX());
+		
+		// VEZBE 5
+		Point p7 = new Point(6, 7);
+		System.out.println("p7 contains p8: " + p6.contains(p7.getX(), p7.getY()));
+		System.out.println("p7 contains p8 + 1: " + p6.contains(p7.getX() + 1, p7.getY() + 1));
+
+		Line l6 = new Line(new Point(10, 15), new Point(20, 25));
+		System.out.println("l6 contains (21, 25): " + l6.contains(21, 25));
+
+		Circle c4 = new Circle(p5, 10);
+		System.out.println("c4 contains p8: " + c4.contains(p7));
+		System.out.println("c4 contains (6, 7): " + c4.contains(6, 7));
+
+		Donut d1 = new Donut();
+		// d1.center = new Point(10, 20);
+		d1.setCenter(new Point(10, 20));
+		d1.setInnerR(10);
+		d1.setRadius(50);
+
+		System.out.println(d1);
+		System.out.println("d1 contains (24, 20): " + d1.contains(24, 20));
+		Circle c5 = new Circle(d1.center, d1.radius);
+		System.out.println("d1 equals c5: " + d1.equals(c5));
+
+		Donut d2 = new Donut(new Point(10, 20), 50, 10);
+		System.out.println("d1 equals d2: " + d1.equals(d2));
+
+		System.out.println("d1 area: " + d1.area());
+		System.out.println("d1 circumference: " + d1.circumference());
 	}
 
 }

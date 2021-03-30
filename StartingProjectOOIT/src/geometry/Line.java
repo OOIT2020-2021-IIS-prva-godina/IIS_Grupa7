@@ -36,6 +36,10 @@ public class Line {
 	public String toString() {
 		return startPoint+"-- >"+endPoint;
 	}
+	
+	public boolean contains(int x, int y) {
+		return (startPoint.distance(x, y) + endPoint.distance(x, y)) - length() <= 2;
+	}
 
 	public double length() {
 		return this.startPoint.distance(this.endPoint.getX(), this.endPoint.getY());

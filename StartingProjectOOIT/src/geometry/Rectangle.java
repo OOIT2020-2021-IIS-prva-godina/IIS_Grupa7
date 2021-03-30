@@ -2,7 +2,7 @@ package geometry;
 
 public class Rectangle {
 
-	private Point upperLeftPoint;
+	private Point upperLeft;
 	private int width;
 	private int height;
 	private boolean selected;
@@ -10,14 +10,14 @@ public class Rectangle {
 	public Rectangle() {
 	}
 
-	public Rectangle(Point upperLeftPoint, int width, int height) {
-		this.upperLeftPoint = upperLeftPoint;
+	public Rectangle(Point upperLeft, int width, int height) {
+		this.upperLeft = upperLeft;
 		this.width = width;
 		this.height = height;
 	}
 
-	public Rectangle(Point upperLeftPoint, int width, int height, boolean selected) {
-		this(upperLeftPoint, width, height);
+	public Rectangle(Point upperLeft, int width, int height, boolean selected) {
+		this(upperLeft, width, height);
 		this.selected = selected;
 	}
 	
@@ -26,7 +26,7 @@ public class Rectangle {
 		if (obj instanceof Rectangle) {
 
 			Rectangle pomocna = (Rectangle) obj;
-			if (this.upperLeftPoint.equals(pomocna.upperLeftPoint) && this.width == pomocna.width
+			if (this.upperLeft.equals(pomocna.upperLeft) && this.width == pomocna.width
 					&& this.height == pomocna.height)
 				return true;
 			else
@@ -37,7 +37,16 @@ public class Rectangle {
 	}
 	
 	public String toString() {
-		return "Upper left point: " + upperLeftPoint + ", width =" + width + ", height =" + height;
+		return "Upper left point: " + upperLeft + ", width =" + width + ", height =" + height;
+	}
+	
+	public boolean contains(int x, int y) {
+		return (upperLeft.getX() < x && upperLeft.getX() + width > x
+				&& upperLeft.getY() < y && upperLeft.getY() + height > y);
+	}
+
+	public boolean contains(Point p) {
+		return this.contains(p.getX(), p.getY());
 	}
 
 	public int area() {
@@ -49,11 +58,11 @@ public class Rectangle {
 	}
 
 	public Point getUpperLeftPoint() {
-		return upperLeftPoint;
+		return upperLeft;
 	}
 
 	public void setUpperLeftPoint(Point upperLeftPoint) {
-		this.upperLeftPoint = upperLeftPoint;
+		this.upperLeft = upperLeftPoint;
 	}
 
 	public int getWidth() {

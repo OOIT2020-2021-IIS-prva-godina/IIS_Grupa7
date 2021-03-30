@@ -45,6 +45,10 @@ public class Point {
 		return "(" + x + ", " + y + ")";
 	}
 	
+	public boolean contains(int x, int y) {
+		return this.distance(x, y) <= 2;
+	}
+	
 	public int getX() {
 		return x;
 	}
