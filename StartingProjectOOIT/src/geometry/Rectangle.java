@@ -62,6 +62,24 @@ public class Rectangle extends Shape  {
 	public int circumference() {
 		return 2 * this.width + 2 * this.height;
 	}
+	
+	@Override
+	public int compareTo(Object o) {
+		if (o instanceof Rectangle) {
+			return (int) (this.area() - ((Rectangle) o).area());
+		}
+		return 0;
+	}
+
+	@Override
+	public void moveTo(int x, int y) {
+		upperLeft.moveTo(x, y);
+	}
+
+	@Override
+	public void moveBy(int byX, int byY) {
+		upperLeft.moveBy(byX, byY);
+	}
 
 	public Point getUpperLeftPoint() {
 		return upperLeft;

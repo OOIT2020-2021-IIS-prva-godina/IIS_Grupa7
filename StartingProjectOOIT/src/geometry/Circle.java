@@ -4,8 +4,8 @@ import java.awt.Graphics;
 
 public class Circle extends Shape {
 
-	protected  Point center;
-	protected  int radius;
+	protected Point center;
+	protected int radius;
 	
 	public Circle() {
 		
@@ -54,6 +54,24 @@ public class Circle extends Shape {
 
 	public double circumference() {
 		return 2 * this.radius * Math.PI;
+	}
+	
+	@Override
+	public int compareTo(Object o) {
+		if (o instanceof Circle) {
+			return (int) (this.area() - ((Circle) o).area());
+		}
+		return 0;
+	}
+
+	@Override
+	public void moveTo(int x, int y) {
+		center.moveTo(x, y);
+	}
+
+	@Override
+	public void moveBy(int byX, int byY) {
+		center.moveBy(byX, byY);
 	}
 
 	public Point getCenter() {
