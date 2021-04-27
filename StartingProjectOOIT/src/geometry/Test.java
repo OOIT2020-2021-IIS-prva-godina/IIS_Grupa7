@@ -72,7 +72,12 @@ public class Test {
 		// povrsine pravougaonika r1 i y koordinate pocetne tacke linije l1
 		r1.setWidth(30);
 		r1.setHeight(20);
-		c1.getCenter().setX(r1.area() - l1.getStartPoint().getY());
+		//c1.getCenter().setX(r1.area() - l1.getStartPoint().getY());
+		try {
+			c1.setRadius(-10);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		System.out.println(c1.getCenter().getX());
 		
 		// VEZBE 4
@@ -123,7 +128,7 @@ public class Test {
 		// d1.center = new Point(10, 20);
 		d1.setCenter(new Point(10, 20));
 		d1.setInnerR(10);
-		d1.setRadius(50);
+		//d1.setRadius(50);
 
 		System.out.println(d1);
 		System.out.println("d1 contains (24, 20): " + d1.contains(24, 20));
